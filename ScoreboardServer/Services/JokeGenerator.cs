@@ -24,9 +24,9 @@ namespace ScoreboardServer.Services
 
             var endings = new List<string>()
             {
-                "like a howling banshee.",
+                "like a howling ghost.",
                 "as " + genderPronoun + " loosened " + possesiveGenderPronoun + " necktie.",
-                "at Jared.",
+                "at nobody in particular.",
                 "in a fit of rage.",
                 "in a thick Australian accent.",
                 "just before jumping out of the boat.",
