@@ -37,7 +37,6 @@ namespace ScoreboardServer.Services
                 "enthusiastically",
                 "with a hollow tone of remorse",
                 "before " + genderPronoun + " realized " + genderPronoun + " was dreaming.",
-                "before " + genderPronoun + " started to weep.",
                 "looking Voldemort right in the eyes"
 
             };
