@@ -10,26 +10,43 @@ namespace ScoreboardServer.Controllers
     public class RegisterScoreController : ApiController
     {
         private IVotePersister _votePersister;
-        private ScoreboardContext _ScoreboardContext;
+        private ScoreboardContext _scoreboardContext;
+        private IChatPostService _chatPostService;
+        private IJokeGenerator _jokeGenerator;
 
         public RegisterScoreController()
         {
-            _ScoreboardContext = new ScoreboardContext();
-            _votePersister = new VotePersister(_ScoreboardContext);
+            _scoreboardContext = new ScoreboardContext();
+            _votePersister = new VotePersister(_scoreboardContext);
+            _chatPostService = new ChatPostService();
+            _jokeGenerator = new JokeGenerator();
         }
 
-        [Route("Vote/{playerId}")]
+        [Route("Score/{playerId}")]
         public string Get(int playerId)
         {
             var player = _votePersister.FindPlayerBy(playerId);
             return _votePersister.GetCountBy(player).ToString();
         }
 
-        [Route("Vote/{playerId}")]
+        [Route("Score/{playerId}")]
         public void Post(int playerId)
         {
             var player = _votePersister.FindPlayerBy(playerId);
             _votePersister.PersistVote(player);
+
+            var jokeText = "I clicked a button!";
+            _chatPostService.PostToSlack(player, jokeText); 
+        }
+
+        [Route("Words/{playerId}/{yellText}")]
+        public void Post(int playerId, string yellText)
+        {
+            var player = _votePersister.FindPlayerBy(playerId);
+            _votePersister.PersistVote(player);
+
+            var jokeText = _jokeGenerator.GenerateJoke(player, yellText);
+            _chatPostService.PostToSlack(player, jokeText);
         }
 
         [Route("Players/")]
@@ -48,7 +65,7 @@ namespace ScoreboardServer.Controllers
             players.ForEach(p =>
             {
                 var validVotes = p.Votes.Where(v => v.CreatedAt >= DateTime.UtcNow.AddMinutes(-5)).ToList();
-                p.Votes = (ICollection<Vote>) validVotes;
+                p.Votes = validVotes;
             });
 
             return players;

@@ -7,8 +7,6 @@ Project("{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}") = "GradAcademyDemo", "GradAcad
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScoreboardServer", "ScoreboardServer\ScoreboardServer.csproj", "{7BF8C3E9-3BAD-4009-A86D-3BD9AFED4DBF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScoreboardServer.Tests", "ScoreboardServer.Tests\ScoreboardServer.Tests.csproj", "{2D595082-99DF-406B-AECA-DEB5F81FE358}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{7BF8C3E9-3BAD-4009-A86D-3BD9AFED4DBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BF8C3E9-3BAD-4009-A86D-3BD9AFED4DBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7BF8C3E9-3BAD-4009-A86D-3BD9AFED4DBF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2D595082-99DF-406B-AECA-DEB5F81FE358}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2D595082-99DF-406B-AECA-DEB5F81FE358}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2D595082-99DF-406B-AECA-DEB5F81FE358}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2D595082-99DF-406B-AECA-DEB5F81FE358}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -106,8 +106,8 @@ angular.module('ionicApp', ['ionic'])
     });
 })
 
-//.constant('API_END_POINT', 'http://hmbgascoreboardserver.azurewebsites.net')
-.constant('API_END_POINT', 'http://localhost:49376')
+.constant('API_END_POINT', 'http://hmbgascoreboardserver.azurewebsites.net')
+//.constant('API_END_POINT', 'http://localhost:49376')
 
 .service("playerService", function ($http, API_END_POINT) {
     // public methods
@@ -121,7 +121,7 @@ angular.module('ionicApp', ['ionic'])
     }
 
     function voteForPlayer(player) {
-        $http.post(API_END_POINT + "/Vote/" + player.PlayerId);
+        $http.post(API_END_POINT + "/Score/" + player.PlayerId);
     }
 
     // public api
